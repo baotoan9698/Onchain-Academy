@@ -557,11 +557,12 @@ section[id] {
 .about-copy {
   max-width: 750px;
   margin: 0 auto 34px;
-  font-size: 15px;
-  line-height: 1.45;
+  font-size: 16px;
+  line-height: 26px;
 }
 .about-copy p {
   color: #55555b;
+  line-height: inherit;
 }
 .about-copy ul {
   padding-left: 21px;
@@ -1247,9 +1248,6 @@ footer .copyright {
   }
   .card-body {
     padding: 20px 8px;
-  }
-  .about-copy {
-    font-size: 14px;
   }
   .about-building {
     height: 280px;
