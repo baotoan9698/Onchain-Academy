@@ -460,7 +460,7 @@ export default function Home() {
                     <span className="benefit-icon">
                       <Icon size={24} strokeWidth={1.3} />
                     </span>
-                    <h3>{title}</h3>
+                    <h3 title={title}>{title}</h3>
                     <p>{text}</p>
                   </article>
                 );
