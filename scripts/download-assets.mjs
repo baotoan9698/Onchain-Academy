@@ -46,6 +46,14 @@ for (const image of blogSeed.images) {
   );
 }
 const envFile = new URL(".env.local", root);
+const solutionImages = JSON.parse(await readFile(new URL("data/solution-images.json", root), "utf8"));
+await mkdir(new URL("public/images/solutions/", root), { recursive: true });
+for (const [source, local] of Object.entries(solutionImages)) {
+  if (!/^\/images\/solutions\/[a-zA-Z0-9._-]+$/.test(local)) throw new Error("Invalid solution image path");
+  const response = await fetch(source);
+  if (!response.ok) throw new Error(`${source}: ${response.status}`);
+  await writeFile(new URL("public" + local, root), Buffer.from(await response.arrayBuffer()));
+}
 const env = await readFile(envFile, "utf8").catch((error) => {
   if (error.code === "ENOENT") return "";
   throw error;

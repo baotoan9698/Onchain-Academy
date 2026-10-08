@@ -33,7 +33,7 @@ import {
 const contact = original("/contact-us");
 const nav = [
   ["About Us", "#aboutus"],
-  ["Our Solutions", "#products"],
+  ["Our Solutions", "/solution"],
   ["Testimonials", "#reviews"],
   ["Adoption program", "#activities"],
   ["Blogs", "/blogs"],
@@ -391,7 +391,7 @@ export default function Home() {
                 <a
                   className="card article-card"
                   key={item.slug}
-                  href={original(`/solution/${item.slug}`)}
+                  href={`/solution/${item.slug}`}
                 >
                   <Picture name={item.image} alt={item.title} />
                   <div className="card-body">
@@ -581,9 +581,9 @@ export default function Home() {
                 <a
                   href={
                     item === "R&D"
-                      ? original("/solution/research-development")
+                      ? "/solution/research-development"
                       : item === "Course"
-                        ? original("/solution/customized-training")
+                        ? "/solution/customized-training"
                         : "/blogs"
                   }
                   key={item}
@@ -665,7 +665,7 @@ export default function Home() {
         </div>
         <nav aria-label="Footer navigation">
           <a href="#benefits">Benefits</a>
-          <a href="#products">Solutions</a>
+          <a href="/solution">Solutions</a>
           <a href={contact}>Contact</a>
           <a href="/blogs">Blogs</a>
           <a href="#reviews">Testimonials</a>

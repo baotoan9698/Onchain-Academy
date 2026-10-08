@@ -113,6 +113,13 @@ export default function BlogSupport() {
           </div>
         </div>
       </section>
+      <SolutionActivities />
+    </>
+  );
+}
+
+export function SolutionActivities() {
+  return (
       <section className="section activities">
         <div className="container">
           <div className="section-heading">
@@ -136,9 +143,9 @@ export default function BlogSupport() {
               <a
                 href={
                   item === "R&D"
-                    ? original("/solution/research-development")
+                    ? "/solution/research-development"
                     : item === "Course"
-                      ? original("/solution/customized-training")
+                      ? "/solution/customized-training"
                       : "/blogs"
                 }
                 key={item}
@@ -149,6 +156,5 @@ export default function BlogSupport() {
           </div>
         </div>
       </section>
-    </>
   );
 }

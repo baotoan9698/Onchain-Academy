@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Linkedin } from "lucide-react";
 import { asset, original } from "@/lib/content";
 
@@ -19,6 +20,7 @@ export function SiteLogo() {
   );
 }
 export function SiteHeader() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -35,7 +37,7 @@ export function SiteHeader() {
         >
           {[
             ["About Us", "/#aboutus"],
-            ["Our Solutions", "/#products"],
+            ["Our Solutions", "/solution"],
             ["Testimonials", "/#reviews"],
             ["Adoption program", "/#activities"],
             ["Blogs", "/blogs"],
@@ -44,7 +46,7 @@ export function SiteHeader() {
               href={href}
               key={label}
               onClick={() => setOpen(false)}
-              aria-current={label === "Blogs" ? "page" : undefined}
+              aria-current={(href === "/blogs" || href === "/solution") && pathname.startsWith(href) ? "page" : undefined}
             >
               {label}
             </Link>
@@ -100,7 +102,7 @@ export function SiteFooter() {
       <nav aria-label="Footer navigation">
         {[
           ["Benefits", "/#benefits"],
-          ["Solutions", "/#products"],
+          ["Solutions", "/solution"],
           ["Contact", original("/contact-us")],
           ["Blogs", "/blogs"],
           ["Testimonials", "/#reviews"],

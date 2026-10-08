@@ -1,0 +1,33 @@
+.solution-site { color: #000; }
+.solution-intro > p, .solution-card > p, .solution-body p { color: #000; }
+.solution-intro { text-align: center; padding: 72px 24px 84px; max-width: 1100px; margin: auto; }
+.solution-intro h1 { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; letter-spacing: -.045em; margin: 24px 0; font-weight: 600; }
+.solution-intro > p { font-size: 16px; line-height: 26px; margin: 0 auto; max-width: 920px; }
+.solution-detail-intro { padding-bottom: 52px; }
+.solution-list { padding-bottom: 70px; }
+.solution-toolbar { display: flex; align-items: center; justify-content: space-between; margin: 12px 0 32px; }
+.solution-toolbar h2 { font-size: 20px; font-weight: 500; }
+.solution-filter { border-radius: 12px; padding: 12px 22px; background: #fff; box-shadow: 0 3px 25px #b49fe323; }
+.solution-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; position: relative; }
+.solution-grid::before { content: ""; position: absolute; inset: -40px -20px; background: radial-gradient(ellipse at 50% 20%, #dedcff99, transparent 65%); pointer-events: none; }
+.solution-card { position: relative; display: flex; flex-direction: column; padding: 22px; border: 2px solid #fff; border-radius: 24px; background: linear-gradient(135deg,#ffffffb0,#fff); box-shadow: var(--shadow); transition: transform .25s, box-shadow .25s; min-width: 0; }
+.solution-card:hover { transform: translateY(-6px); box-shadow: 0 18px 35px #34314b20; }
+.solution-card > img { width: 100%; height: auto; aspect-ratio: 1.55; object-fit: cover; border-radius: 16px; }
+.solution-card h2 { font-size: 22px; line-height: 30px; margin: 24px 0 12px; letter-spacing: -.025em; }
+.solution-card > p { font-size: 14px; line-height: 23px; margin: 0 0 24px; }
+.solution-tags { display: flex; gap: 8px; margin-top: auto; }
+.solution-tags span { font-size: 12px; padding: 6px 10px; background: #f1ebff; border-radius: 7px; }
+.solution-tags span + span { background: #f5f5f7; }
+.solution-partners, .solution-body { border: 1px solid #eee; background: #ffffffb8; border-radius: 24px; padding: 28px; box-shadow: 0 2px 10px #00000005; margin-bottom: 30px; }
+.solution-partners { padding: 32px 48px; }
+.solution-partners h2, .solution-body > h2 { font-size: 24px; line-height: 32px; margin: 0 0 26px; font-weight: 550; }
+.solution-partners > div { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.solution-partners img { width: 120px; height: 64px; object-fit: contain; }
+.solution-body { font-size: 16px; line-height: 26px; overflow-wrap: anywhere; }
+.solution-body img { width: 100%; height: auto; border-radius: 14px; margin: 24px 0; }
+.solution-body h3, .solution-body h4 { font-size: 23px; line-height: 32px; margin: 32px 0 16px; }
+.solution-body p { margin: 16px 0; }
+.solution-body ul, .solution-body ol { padding-left: 26px; }
+.solution-body a { text-decoration: underline; color: #7044c3; }
+.solution-related { padding: 70px 0 40px; }
+@media(max-width: 800px) { .solution-grid { grid-template-columns: 1fr; gap: 24px; } .solution-card { padding: 20px; } .solution-intro { padding: 48px 20px; } .solution-partners, .solution-body { padding: 22px; } .solution-partners > div { justify-content: center; } .solution-partners img { width: 100px; } .solution-intro .breadcrumb { flex-wrap: wrap; } }
