@@ -1461,6 +1461,19 @@ footer .copyright {
     gap: 7px;
   }
 }
+.scroll-blur {
+  position: fixed;
+  inset: auto 0 0;
+  height: 100px;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+.scroll-blur > div {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
 @media (prefers-reduced-motion: reduce) {
   .news-logos { mask-image: none; }
   .news-logo-track { width: 100%; }

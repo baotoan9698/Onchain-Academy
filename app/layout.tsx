@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ScrollBlur } from "../components/scroll-blur";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>{children}<ScrollBlur /></body>
     </html>
   );
 }
