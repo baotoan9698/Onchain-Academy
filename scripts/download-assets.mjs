@@ -10,7 +10,8 @@ const names = [
   ),
 ];
 const directory = new URL("public/images/", root);
-if (!names.length) throw new Error("No image filenames found in lib/content.ts");
+if (!names.length)
+  throw new Error("No image filenames found in lib/content.ts");
 await mkdir(directory, { recursive: true });
 for (const name of names) {
   const response = await fetch(`https://framerusercontent.com/images/${name}`);
@@ -20,6 +21,20 @@ for (const name of names) {
     Buffer.from(await response.arrayBuffer()),
   );
   console.log(`Downloaded ${name}`);
+}
+const blogSeed = JSON.parse(
+  await readFile(new URL("data/blog-seed.json", root), "utf8"),
+);
+await mkdir(new URL("public/images/blogs/", root), { recursive: true });
+for (const image of blogSeed.images) {
+  if (!/^\/images\/blogs\/[a-zA-Z0-9._-]+$/.test(image.path))
+    throw new Error("Invalid local image path");
+  const response = await fetch(image.source_url);
+  if (!response.ok) throw new Error(`${image.source_url}: ${response.status}`);
+  await writeFile(
+    new URL("public" + image.path, root),
+    Buffer.from(await response.arrayBuffer()),
+  );
 }
 const envFile = new URL(".env.local", root);
 const env = await readFile(envFile, "utf8").catch((error) => {

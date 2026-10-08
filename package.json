@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/seed-blog-db.mjs",
+    "prebuild": "node scripts/seed-blog-db.mjs",
+    "db:seed": "node scripts/seed-blog-db.mjs",
+    "check:blogs": "node scripts/check-blogs.mjs",
     "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start --hostname 0.0.0.0",
@@ -10,12 +14,15 @@
     "assets:download": "node scripts/download-assets.mjs"
   },
   "dependencies": {
+    "sql.js": "^1.13.0",
+    "server-only": "^0.0.1",
     "next": "16.3.8",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "lucide-react": "^0.468.0"
   },
   "devDependencies": {
+    "@types/sql.js": "^1.4.9",
     "typescript": "^5.7.2",
     "@types/node": "^22.10.0",
     "@types/react": "^19.0.0",

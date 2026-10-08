@@ -36,7 +36,7 @@ const nav = [
   ["Our Solutions", "#products"],
   ["Testimonials", "#reviews"],
   ["Adoption program", "#activities"],
-  ["Blogs", "#blogs"],
+  ["Blogs", "/blogs"],
 ];
 function Picture({
   name,
@@ -280,7 +280,7 @@ export default function Home() {
             <div className="grid three">
               {blogs.map((blog) => (
                 <a
-                  href={original(`/blogs/${blog.slug}/`)}
+                  href={`/blogs/${blog.slug}`}
                   className="card article-card"
                   key={blog.slug}
                 >
@@ -584,7 +584,7 @@ export default function Home() {
                       ? original("/solution/research-development")
                       : item === "Course"
                         ? original("/solution/customized-training")
-                        : original("/blogs")
+                        : "/blogs"
                   }
                   key={item}
                 >
@@ -667,7 +667,7 @@ export default function Home() {
           <a href="#benefits">Benefits</a>
           <a href="#products">Solutions</a>
           <a href={contact}>Contact</a>
-          <a href="#blogs">Blogs</a>
+          <a href="/blogs">Blogs</a>
           <a href="#reviews">Testimonials</a>
         </nav>
         <div className="copyright">
