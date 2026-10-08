@@ -34,7 +34,7 @@ export const imageFiles = {
 export type ImageKey = keyof typeof imageFiles;
 export const asset = (key: ImageKey) =>
   `${process.env.NEXT_PUBLIC_LOCAL_ASSETS === "true" ? "/images/" : "https://framerusercontent.com/images/"}${imageFiles[key]}`;
-export const original = (path: string) => `https://on-chain.academy${path}`;
+export const original = (path: string) => path === "/contact-us" ? path : `https://on-chain.academy${path}`;
 export const opportunities = [
   {
     title: "Timing",

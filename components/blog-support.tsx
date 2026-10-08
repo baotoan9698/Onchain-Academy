@@ -37,7 +37,6 @@ function Label({ children }: { children: React.ReactNode }) {
   );
 }
 export default function BlogSupport() {
-  const [open, setOpen] = useState<number | null>(1);
   const icons = [Landmark, Network, Rocket, GraduationCap, BookOpen, Globe2];
   return (
     <>
@@ -72,47 +71,7 @@ export default function BlogSupport() {
           </div>
         </div>
       </section>
-      <section className="section faq">
-        <div className="container faq-grid">
-          <div>
-            <Label>FAQ Hub</Label>
-            <h2>
-              Frequently Asked
-              <br />
-              Questions!
-            </h2>
-            <div className="card question-card">
-              <h3>Still Have Questions?</h3>
-              <p>Don’t hesitate to reach out!</p>
-              <a className="button button-dark" href={original("/contact-us")}>
-                Contact Us
-              </a>
-            </div>
-          </div>
-          <div className="faq-list">
-            {faqs.map(([question, answer], i) => (
-              <div
-                className={`faq-item ${open === i ? "expanded" : ""}`}
-                key={question}
-              >
-                <h3>
-                  <button
-                    aria-expanded={open === i}
-                    aria-controls={`blog-faq-${i}`}
-                    onClick={() => setOpen(open === i ? null : i)}
-                  >
-                    {question}
-                    <ChevronDown size={17} />
-                  </button>
-                </h3>
-                <div id={`blog-faq-${i}`} hidden={open !== i}>
-                  <p>{answer}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ContactFaq />
       <SolutionActivities />
     </>
   );
@@ -152,6 +111,53 @@ export function SolutionActivities() {
               >
                 {item}
               </a>
+            ))}
+          </div>
+        </div>
+      </section>
+  );
+}
+
+export function ContactFaq() {
+  const [open, setOpen] = useState<number | null>(1);
+  return (
+      <section className="section faq">
+        <div className="container faq-grid">
+          <div>
+            <Label>FAQ Hub</Label>
+            <h2>
+              Frequently Asked
+              <br />
+              Questions!
+            </h2>
+            <div className="card question-card">
+              <h3>Still Have Questions?</h3>
+              <p>Don’t hesitate to reach out!</p>
+              <a className="button button-dark" href={original("/contact-us")}>
+                Contact Us
+              </a>
+            </div>
+          </div>
+          <div className="faq-list">
+            {faqs.map(([question, answer], i) => (
+              <div
+                className={`faq-item ${open === i ? "expanded" : ""}`}
+                key={question}
+              >
+                <h3>
+                  <button
+                    aria-expanded={open === i}
+                    aria-controls={`blog-faq-${i}`}
+                    onClick={() => setOpen(open === i ? null : i)}
+                  >
+                    {question}
+                    <ChevronDown size={17} />
+                  </button>
+                </h3>
+                <div id={`blog-faq-${i}`} hidden={open !== i}>
+                  <p>{answer}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
