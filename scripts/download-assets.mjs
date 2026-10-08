@@ -1,6 +1,15 @@
 import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 const root = new URL("../", import.meta.url);
+await mkdir(new URL("public/", root), { recursive: true });
+for (const [local, original] of [
+  ["favicon-light.jpg", "wclenNwBIpJAjEeWfPvxE8QKyw.jpg"],
+  ["favicon-dark.png", "Vw4SxE2qkEuKYpt0YYdU2kV6Irg.png"],
+]) {
+  const response = await fetch(`https://framerusercontent.com/images/${original}`);
+  if (!response.ok) throw new Error(`${original}: ${response.status}`);
+  await writeFile(new URL(`public/${local}`, root), Buffer.from(await response.arrayBuffer()));
+}
 const content = await readFile(new URL("lib/content.ts", root), "utf8");
 const names = [
   ...new Set(
