@@ -340,8 +340,9 @@ export default function Home() {
         <section className="media section">
           <Heading label="Media" title="Media About Us" />
           <div className="media-logos">
+            <div className="media-logo-track">
             {[0, 1].map((repeat) => (
-              <div className="media-group" key={repeat}>
+              <div className="media-group" key={repeat} aria-hidden={repeat ? true : undefined}>
                 {(
                   [
                     [
@@ -377,6 +378,7 @@ export default function Home() {
                 ))}
               </div>
             ))}
+            </div>
           </div>
         </section>
         <section id="products" className="section solutions">
