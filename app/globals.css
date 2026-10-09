@@ -761,12 +761,27 @@ section[id] {
   display: flex;
   flex-direction: column;
 }
-.person > img {
+.person-avatar {
   width: 100%;
-  height: 215px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #f0f0ef;
+}
+.person-avatar > img {
+  object-position: center top;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
   object-fit: cover;
   border-radius: 14px;
   background: #f0f0ef;
+}
+.person-avatar-min > img {
+  transform: scale(1.08);
+  transform-origin: center top;
 }
 .person h3 {
   text-align: center;
@@ -1087,9 +1102,6 @@ footer .copyright {
   .review {
     padding: 25px 20px;
   }
-  .person > img {
-    height: 180px;
-  }
   .media {
     padding: 10px 0 55px;
   }
@@ -1329,9 +1341,6 @@ footer .copyright {
   .person {
     flex-basis: calc((100% - 24px) / 2);
   }
-  .person > img {
-    height: 180px;
-  }
   .person p {
     font-size: 12px;
   }
@@ -1426,9 +1435,6 @@ footer .copyright {
   .person {
     flex-basis: 88%;
     padding: 17px;
-  }
-  .person > img {
-    height: 225px;
   }
   .person p {
     font-size: 13px;

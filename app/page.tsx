@@ -501,7 +501,9 @@ export default function Home() {
               >
                 {contributors.map((person) => (
                   <article className="card person" key={person.name}>
-                    <Picture name={person.image} alt={person.name} />
+                    <div className={person.image === "min" ? "person-avatar person-avatar-min" : "person-avatar"}>
+                      <Picture name={person.image} alt={person.name} />
+                    </div>
                     <h3>{person.name}</h3>
                     <span className="person-role">Contributor</span>
                     <p>{person.bio}</p>
